@@ -66,6 +66,35 @@ A terminal-based Todo application built using Python.
 python todo_app.py
 ```
 
+# Mini Project 3 - Student Management System
+
+## 📌 Description
+
+A terminal-based student management system built using Python and file handling.
+
+## 🚀 Features
+
+* Add student
+* View students
+* Search student
+* Delete student
+* Persistent file storage
+
+## 🧠 Concepts Practiced
+
+* File handling
+* CRUD operations
+* Searching records
+* Reading and writing files
+* Data persistence
+
+## ▶️ Run
+
+```bash
+python student_manager.py
+```
+
+
 ---
 
 # 🛠️ Technologies Used
