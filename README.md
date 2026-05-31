@@ -111,3 +111,28 @@ python student_manager.py
 * Practice problem solving
 * Build real-world mini projects
 * Learn backend development concepts
+
+
+# Mini Project 5 - Inventory Management System
+
+## 📌 Description
+A terminal-based inventory management application built using Python.
+
+## 🚀 Features
+- Add items
+- View inventory
+- Search items
+- Update stock
+- Delete items
+
+## 🧠 Concepts Practiced
+- Object-Oriented Programming
+- File handling
+- CRUD operations
+- Inventory workflows
+
+## ▶️ Run
+
+```bash
+python inventory_system.py
+
