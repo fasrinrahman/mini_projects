@@ -135,4 +135,29 @@ A terminal-based inventory management application built using Python.
 
 ```bash
 python inventory_system.py
+```
 
+# Mini Project 6 - User Management System
+
+## 📌 Description
+A terminal-based authentication and user management system built using Python.
+
+## 🚀 Features
+- Register user
+- Login user
+- View users
+- Password hashing
+- Role management
+
+## 🧠 Concepts Practiced
+- Authentication
+- Authorization
+- Hashing
+- File handling
+- Security basics
+
+## ▶️ Run
+
+```bash
+python user_management.py
+```
