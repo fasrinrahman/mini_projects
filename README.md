@@ -161,3 +161,27 @@ A terminal-based authentication and user management system built using Python.
 ```bash
 python user_management.py
 ```
+
+# Mini Project 7 - Weather Dashboard
+
+## 📌 Description
+A terminal-based weather dashboard that retrieves live weather data using an API.
+
+## 🚀 Features
+- Search weather by city
+- Live weather information
+- Temperature display
+- Humidity display
+- Weather condition display
+
+## 🧠 Concepts Practiced
+- APIs
+- JSON
+- HTTP requests
+- Error handling
+- Data parsing
+
+## ▶️ Run
+
+```bash
+python weather_dashboard.py
