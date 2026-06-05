@@ -8,11 +8,7 @@ import requests
 
 def get_weather(city):
 
-    url = (
-        "https://wttr.in/"
-        + city
-        + "?format=j1"
-    )
+    url = "https://wttr.in/" + city + "?format=j1"
 
     try:
 
@@ -26,39 +22,25 @@ def get_weather(city):
 
         print("City:", city)
 
-        print(
-            "Temperature:",
-            current["temp_C"],
-            "°C"
-        )
+        print("Temperature:", current["temp_C"], "°C")
 
-        print(
-            "Humidity:",
-            current["humidity"],
-            "%"
-        )
+        print("Humidity:", current["humidity"], "%")
 
-        print(
-            "Weather:",
-            current["weatherDesc"][0]["value"]
-        )
+        print("Weather:", current["weatherDesc"][0]["value"])
 
     except Exception as error:
 
-        print(
-            "Error occurred:",
-            error
-        )
+        print("Error occurred:", error)
 
 
 while True:
 
-    city = input(
-        "\nEnter city name (or exit): "
-    )
+    city = input("\nEnter city name (or exit): ")
 
     if city.lower() == "exit":
-
+        print("===================\n")
+        print("==== Thank you ====\n")
+        print("===================\n")
         break
 
     get_weather(city)
