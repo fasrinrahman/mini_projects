@@ -185,3 +185,31 @@ A terminal-based weather dashboard that retrieves live weather data using an API
 
 ```bash
 python weather_dashboard.py
+```
+
+# Mini Project 8 - SQLite Employee Management System
+
+## 📌 Description
+
+A terminal-based employee management application built using Python and SQLite.
+
+## 🚀 Features
+
+- Add employee
+- View employees
+- Search employee
+- Delete employee
+- SQLite database storage
+
+## 🧠 Concepts Practiced
+
+- SQLite
+- SQL queries
+- CRUD operations
+- Database connections
+
+## ▶️ Run
+
+```bash
+python employee_management.py
+```
