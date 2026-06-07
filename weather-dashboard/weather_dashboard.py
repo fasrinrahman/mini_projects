@@ -38,9 +38,9 @@ while True:
     city = input("\nEnter city name (or exit): ")
 
     if city.lower() == "exit":
-        print("===================\n")
-        print("==== Thank you ====\n")
-        print("===================\n")
+        print("===================")
+        print("==== Thank you ====")
+        print("===================")
         break
 
     get_weather(city)
