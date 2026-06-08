@@ -213,3 +213,27 @@ A terminal-based employee management application built using Python and SQLite.
 ```bash
 python employee_management.py
 ```
+# Mini Project 9 - Flask REST API
+
+## 📌 Description
+
+A simple REST API built using Flask.
+
+## 🚀 Features
+
+- Get all products
+- Get product by ID
+- Add product
+- Delete product
+
+## 🧠 Concepts Practiced
+
+- Flask
+- REST APIs
+- JSON
+- HTTP methods
+
+## ▶️ Run
+
+```bash
+python app.py
