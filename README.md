@@ -2,10 +2,10 @@
 
 This repository contains my Python learning journey, including:
 
-* DSA practice
-* Mini projects
-* Backend concepts
-* Problem-solving exercises
+- DSA practice
+- Mini projects
+- Backend concepts
+- Problem-solving exercises
 
 ---
 
@@ -17,18 +17,18 @@ A simple terminal-based calculator built using Python.
 
 ## 🚀 Features
 
-* Addition
-* Subtraction
-* Multiplication
-* Division
-* Invalid input handling
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Invalid input handling
 
 ## 🧠 Concepts Practiced
 
-* Functions
-* User input
-* Conditional statements
-* Basic error handling
+- Functions
+- User input
+- Conditional statements
+- Basic error handling
 
 ## ▶️ Run
 
@@ -46,19 +46,19 @@ A terminal-based Todo application built using Python.
 
 ## 🚀 Features
 
-* Add tasks
-* View tasks
-* Update tasks
-* Delete tasks
-* Menu-driven system
+- Add tasks
+- View tasks
+- Update tasks
+- Delete tasks
+- Menu-driven system
 
 ## 🧠 Concepts Practiced
 
-* CRUD operations
-* Lists
-* Loops
-* Functions
-* User interaction
+- CRUD operations
+- Lists
+- Loops
+- Functions
+- User interaction
 
 ## ▶️ Run
 
@@ -74,19 +74,19 @@ A terminal-based student management system built using Python and file handling.
 
 ## 🚀 Features
 
-* Add student
-* View students
-* Search student
-* Delete student
-* Persistent file storage
+- Add student
+- View students
+- Search student
+- Delete student
+- Persistent file storage
 
 ## 🧠 Concepts Practiced
 
-* File handling
-* CRUD operations
-* Searching records
-* Reading and writing files
-* Data persistence
+- File handling
+- CRUD operations
+- Searching records
+- Reading and writing files
+- Data persistence
 
 ## ▶️ Run
 
@@ -94,31 +94,31 @@ A terminal-based student management system built using Python and file handling.
 python student_manager.py
 ```
 
-
 ---
 
 # 🛠️ Technologies Used
 
-* Python
-* Git
-* GitHub
+- Python
+- Git
+- GitHub
 
 ---
 
 # 🎯 Learning Goals
 
-* Improve Python programming skills
-* Practice problem solving
-* Build real-world mini projects
-* Learn backend development concepts
-
+- Improve Python programming skills
+- Practice problem solving
+- Build real-world mini projects
+- Learn backend development concepts
 
 # Mini Project 5 - Inventory Management System
 
 ## 📌 Description
+
 A terminal-based inventory management application built using Python.
 
 ## 🚀 Features
+
 - Add items
 - View inventory
 - Search items
@@ -126,6 +126,7 @@ A terminal-based inventory management application built using Python.
 - Delete items
 
 ## 🧠 Concepts Practiced
+
 - Object-Oriented Programming
 - File handling
 - CRUD operations
@@ -140,9 +141,11 @@ python inventory_system.py
 # Mini Project 6 - User Management System
 
 ## 📌 Description
+
 A terminal-based authentication and user management system built using Python.
 
 ## 🚀 Features
+
 - Register user
 - Login user
 - View users
@@ -150,6 +153,7 @@ A terminal-based authentication and user management system built using Python.
 - Role management
 
 ## 🧠 Concepts Practiced
+
 - Authentication
 - Authorization
 - Hashing
@@ -165,9 +169,11 @@ python user_management.py
 # Mini Project 7 - Weather Dashboard
 
 ## 📌 Description
+
 A terminal-based weather dashboard that retrieves live weather data using an API.
 
 ## 🚀 Features
+
 - Search weather by city
 - Live weather information
 - Temperature display
@@ -175,6 +181,7 @@ A terminal-based weather dashboard that retrieves live weather data using an API
 - Weather condition display
 
 ## 🧠 Concepts Practiced
+
 - APIs
 - JSON
 - HTTP requests
@@ -213,6 +220,7 @@ A terminal-based employee management application built using Python and SQLite.
 ```bash
 python employee_management.py
 ```
+
 # Mini Project 9 - Flask REST API
 
 ## 📌 Description
@@ -237,3 +245,32 @@ A simple REST API built using Flask.
 
 ```bash
 python app.py
+```
+
+# Mini Project 10 - Task Management API
+
+## 📌 Description
+
+Task Management REST API built using Flask and SQLite.
+
+## 🚀 Features
+
+- Create Task
+- View Tasks
+- Delete Task
+- SQLite Database
+- REST API
+
+## 🧠 Concepts Practiced
+
+- Flask
+- SQLite
+- CRUD
+- REST APIs
+- JSON
+
+## ▶️ Run
+
+```bash
+python app.py
+```
