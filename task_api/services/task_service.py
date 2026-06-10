@@ -4,6 +4,7 @@ from database.db import get_connection
 # -------------------------
 # GET ALL TASKS
 # -------------------------
+
 def get_all_tasks():
 
     connection = get_connection()
@@ -34,8 +35,43 @@ def get_all_tasks():
 
 
 # -------------------------
+# GET TASK BY ID
+# -------------------------
+
+def get_task_by_id(task_id):
+
+    connection = get_connection()
+
+    cursor = connection.cursor()
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM tasks
+        WHERE id = ?
+        """,
+        (task_id,)
+    )
+
+    row = cursor.fetchone()
+
+    connection.close()
+
+    if row:
+
+        return {
+            "id": row[0],
+            "title": row[1],
+            "status": row[2]
+        }
+
+    return None
+
+
+# -------------------------
 # CREATE TASK
 # -------------------------
+
 def create_task(title, status):
 
     connection = get_connection()
@@ -57,8 +93,41 @@ def create_task(title, status):
 
 
 # -------------------------
+# UPDATE TASK
+# -------------------------
+
+def update_task(
+    task_id,
+    title,
+    status
+):
+
+    connection = get_connection()
+
+    cursor = connection.cursor()
+
+    cursor.execute(
+        """
+        UPDATE tasks
+        SET title = ?, status = ?
+        WHERE id = ?
+        """,
+        (
+            title,
+            status,
+            task_id
+        )
+    )
+
+    connection.commit()
+
+    connection.close()
+
+
+# -------------------------
 # DELETE TASK
 # -------------------------
+
 def delete_task(task_id):
 
     connection = get_connection()
@@ -76,4 +145,3 @@ def delete_task(task_id):
     connection.commit()
 
     connection.close()
-    
