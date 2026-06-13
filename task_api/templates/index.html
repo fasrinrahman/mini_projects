@@ -1,47 +1,21 @@
-<!DOCTYPE html>
-<html>
+<div class="container">
 
-<head>
+    <h1>📋 Task Manager</h1>
 
-    <title>Task Manager</title>
+    <div class="task-form">
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
-    >
+        <input
+            type="text"
+            id="title"
+            placeholder="Enter a new task..."
+        >
 
-</head>
-
-<body>
-
-    <div class="container">
-
-        <h1>Task Manager</h1>
-
-        <div class="task-form">
-
-            <input
-                type="text"
-                id="title"
-                placeholder="Task Title"
-            >
-
-            <button onclick="addTask()">
-                Add Task
-            </button>
-
-        </div>
-
-        <div id="task-list">
-
-        </div>
+        <button onclick="addTask()">
+            Add Task
+        </button>
 
     </div>
 
-    <script
-        src="{{ url_for('static', filename='js/app.js') }}"
-    ></script>
+    <div id="task-list"></div>
 
-</body>
-
-</html>
+</div>

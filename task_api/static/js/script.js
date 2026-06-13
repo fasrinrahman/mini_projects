@@ -1,27 +1,26 @@
-async function loadTasks() {
+console.log("app.js loaded successfully");
 
-    const response =
-        await fetch("/tasks");
+window.loadTasks = async function () {
 
-    const result =
-        await response.json();
+    const response = await fetch("/tasks");
+
+    const result = await response.json();
 
     const taskList =
-        document.getElementById(
-            "task-list"
-        );
+        document.getElementById("task-list");
 
     taskList.innerHTML = "";
 
     result.data.forEach(task => {
 
         taskList.innerHTML += `
-        
         <div class="task">
 
-            <span>
-                ${task.title}
-            </span>
+            <div>
+                <strong>${task.title}</strong>
+                <br>
+                <small>${task.status}</small>
+            </div>
 
             <button
                 onclick="deleteTask(${task.id})"
@@ -32,50 +31,50 @@ async function loadTasks() {
         </div>
         `;
     });
-}
+};
 
-async function addTask() {
+window.addTask = async function () {
 
     const title =
-        document.getElementById(
-            "title"
-        ).value;
+        document.getElementById("title").value;
 
-    await fetch(
-        "/tasks",
-        {
-            method: "POST",
+    if (!title.trim()) {
 
-            headers: {
-                "Content-Type":
-                "application/json"
-            },
+        alert("Please enter a task");
 
-            body: JSON.stringify({
+        return;
+    }
 
-                title: title,
+    await fetch("/tasks", {
 
-                status: "Pending"
-            })
-        }
-    );
+        method: "POST",
 
-    loadTasks();
-}
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-async function deleteTask(id) {
+        body: JSON.stringify({
 
-    await fetch(
+            title: title,
 
-        `/tasks/${id}`,
+            status: "Pending"
+        })
+    });
 
-        {
-            method: "DELETE"
-        }
-    );
+    document.getElementById("title").value = "";
 
     loadTasks();
-}
+};
+
+window.deleteTask = async function (id) {
+
+    await fetch(`/tasks/${id}`, {
+
+        method: "DELETE"
+    });
+
+    loadTasks();
+};
 
 loadTasks();
 
