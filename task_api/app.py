@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+from flask import render_template
 
 from database.db import initialize_database
 
@@ -21,17 +22,21 @@ initialize_database()
 # HOME
 # -------------------------
 
-@app.route("/")
+@app.route("/hi")
 def home():
 
     return jsonify(
         {
             "project": "Task API",
-            "version": "1.0",
+            "version": "2.0",
             "status": "Running"
         }
     )
 
+@app.route("/")
+def index():
+
+    return render_template("index.html")
 
 # -------------------------
 # GET ALL TASKS
