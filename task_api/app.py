@@ -22,7 +22,8 @@ initialize_database()
 # HOME
 # -------------------------
 
-@app.route("/hi")
+
+@app.route("/api-info")
 def home():
 
     return jsonify(
