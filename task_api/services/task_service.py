@@ -33,6 +33,120 @@ def get_all_tasks():
 
     return tasks
 
+# -------------------------
+# SEARCH TASKS
+# -------------------------
+
+def search_tasks(keyword):
+
+    connection = get_connection()
+
+    cursor = connection.cursor()
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM tasks
+        WHERE title LIKE ?
+        """,
+        (f"%{keyword}%",)
+    )
+
+    rows = cursor.fetchall()
+
+    connection.close()
+
+    tasks = []
+
+    for row in rows:
+
+        tasks.append(
+            {
+                "id": row[0],
+                "title": row[1],
+                "status": row[2]
+            }
+        )
+
+    return tasks
+
+# -------------------------
+# FILTER TASKS BY STATUS    
+# -------------------------
+
+def filter_tasks(status):
+
+    connection = get_connection()
+
+    cursor = connection.cursor()
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM tasks
+        WHERE status = ?
+        """,
+        (status,)
+    )
+
+    rows = cursor.fetchall()
+
+    connection.close()
+
+    tasks = []
+
+    for row in rows:
+
+        tasks.append(
+            {
+                "id": row[0],
+                "title": row[1],
+                "status": row[2]
+            }
+        )
+
+    return tasks
+
+# -------------------------------
+#  Filter task by filter and call
+# -------------------------------
+def get_statistics():
+
+    tasks = get_all_tasks()
+
+    total = len(tasks)
+
+    completed = len(
+        [
+            task
+            for task in tasks
+            if task["status"] == "Completed"
+        ]
+    )
+
+    pending = total - completed
+
+    completion_rate = 0
+
+    if total > 0:
+
+        completion_rate = round(
+            (completed / total) * 100,
+            2
+        )
+
+    return {
+
+        "total": total,
+
+        "completed": completed,
+
+        "pending": pending,
+
+        "completion_rate":
+            completion_rate
+    }
+
 
 # -------------------------
 # GET TASK BY ID

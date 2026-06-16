@@ -6,9 +6,12 @@ from flask import render_template
 from database.db import initialize_database
 
 from services.task_service import (
+    filter_tasks,
     get_all_tasks,
+    get_statistics,
     get_task_by_id,
     create_task,
+    search_tasks,
     update_task,
     delete_task
 )
@@ -56,6 +59,61 @@ def get_tasks():
         }
     )
 
+
+@app.route(
+    "/tasks/search",
+    methods=["GET"]
+)
+def search():
+
+    keyword = request.args.get(
+        "q",
+        ""
+    )
+
+    return jsonify(
+        {
+            "success": True,
+            "data": search_tasks(
+                keyword
+            )
+        }
+    )
+
+
+@app.route(
+    "/tasks/filter",
+    methods=["GET"]
+)
+def filter_task():
+
+    status = request.args.get(
+        "status"
+    )
+
+    return jsonify(
+        {
+            "success": True,
+            "data": filter_tasks(
+                status
+            )
+        }
+    )
+    
+    
+@app.route(
+    "/tasks/stats",
+    methods=["GET"]
+)
+def stats():
+
+    return jsonify(
+        {
+            "success": True,
+            "data":
+                get_statistics()
+        }
+    )
 
 # -------------------------
 # GET TASK BY ID
@@ -136,10 +194,18 @@ def edit_task(task_id):
     data = request.json
 
     update_task(
-        task_id,
-        data["title"],
-        data["status"]
+
+    task_id,
+
+    data.get(
+        "title"
+    ),
+
+    data.get(
+        "status",
+        "Pending"
     )
+)
 
     return jsonify(
         {
