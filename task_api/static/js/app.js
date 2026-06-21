@@ -5,42 +5,48 @@ console.log("TaskFlow JS Loaded");
 // =====================
 
 async function loadTasks() {
+  try {
+    const response = await fetch("/tasks");
 
-    try {
+    const result = await response.json();
 
-        const response =
-            await fetch("/tasks");
+    const tasks = result.data;
 
-        const result =
-            await response.json();
+    const taskList = document.getElementById("task-list");
 
-        const tasks =
-            result.data;
+    taskList.innerHTML = "";
 
-        const taskList =
-            document.getElementById(
-                "task-list"
-            );
+    let completed = 0;
+    let pending = 0;
 
-        taskList.innerHTML = "";
+    if (tasks.length === 0) {
+      taskList.innerHTML = `
 
-        let completed = 0;
-        let pending = 0;
+        <div class="empty-state">
 
-        tasks.forEach(task => {
+            <i class="fa-solid fa-inbox"></i>
 
-            if (
-                task.status === "Completed"
-            ) {
+            <h3>No Tasks Found</h3>
 
-                completed++;
+            <p>
+                Add your first task
+            </p>
 
-            } else {
+        </div>
 
-                pending++;
-            }
+    `;
 
-            taskList.innerHTML += `
+      return;
+    }
+
+    tasks.forEach((task) => {
+      if (task.status === "Completed") {
+        completed++;
+      } else {
+        pending++;
+      }
+
+      taskList.innerHTML += `
             
             <div class="task-card">
 
@@ -82,119 +88,77 @@ async function loadTasks() {
 
             </div>
             `;
-        });
+    });
 
-        document.getElementById(
-            "totalTasks"
-        ).textContent =
-            tasks.length;
+    document.getElementById("totalTasks").textContent = tasks.length;
 
-        document.getElementById(
-            "completedTasks"
-        ).textContent =
-            completed;
+    document.getElementById("completedTasks").textContent = completed;
 
-        document.getElementById(
-            "pendingTasks"
-        ).textContent =
-            pending;
-
-    } catch (error) {
-
-        console.error(error);
-    }
+    document.getElementById("pendingTasks").textContent = pending;
+  } catch (error) {
+    console.error(error);
+  }
 }
+const percentage =
+  tasks.length === 0 ? 0 : Math.round((completed / tasks.length) * 100);
 
+document.getElementById("progressBar").style.width = `${percentage}%`;
+
+document.getElementById("progressText").innerText = `${percentage}%`;
 
 // =====================
 // ADD TASK
 // =====================
 
-window.addTask =
-async function () {
+window.addTask = async function () {
+  const title = document.getElementById("title").value;
 
-    const title =
-        document.getElementById(
-            "title"
-        ).value;
+  const status = document.getElementById("status").value;
 
-    const status =
-        document.getElementById(
-            "status"
-        ).value;
+  if (title.trim() === "") {
+    alert("Please enter a task");
 
-    if (
-        title.trim() === ""
-    ) {
+    return;
+  }
 
-        alert(
-            "Please enter a task"
-        );
+  try {
+    await fetch("/tasks", {
+      method: "POST",
 
-        return;
-    }
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-    try {
+      body: JSON.stringify({
+        title: title,
 
-        await fetch(
-            "/tasks",
-            {
+        status: status,
+      }),
+    });
 
-                method: "POST",
+    document.getElementById("title").value = "";
 
-                headers: {
-                    "Content-Type":
-                    "application/json"
-                },
-
-                body:
-                JSON.stringify({
-
-                    title: title,
-
-                    status: status
-                })
-            }
-        );
-
-        document.getElementById(
-            "title"
-        ).value = "";
-
-        loadTasks();
-
-    } catch (error) {
-
-        console.error(error);
-    }
+    loadTasks();
+  } catch (error) {
+    console.error(error);
+  }
 };
-
 
 // =====================
 // DELETE TASK
 // =====================
 
-window.deleteTask =
-async function (id) {
+window.deleteTask = async function (id) {
+  try {
+    await fetch(`/tasks/${id}`, {
+      method: "DELETE",
+    });
 
-    try {
-
-        await fetch(
-            `/tasks/${id}`,
-            {
-                method:
-                    "DELETE"
-            }
-        );
-
-        loadTasks();
-
-    } catch (error) {
-
-        console.error(error);
-    }
+    loadTasks();
+  } catch (error) {
+    console.error(error);
+  }
 };
-
 
 // =====================
 // INITIAL LOAD

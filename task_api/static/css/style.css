@@ -1,9 +1,19 @@
 :root {
-    --primary: #4f46e5;
-    --sidebar: #111827;
-    --background: #f8fafc;
-    --card: #ffffff;
-    --text: #1f2937;
+
+    --primary: #6366f1;
+    --primary-dark: #4338ca;
+
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    --sidebar: #0f172a;
+
+    --background: #f1f5f9;
+
+    --card: rgba(255,255,255,0.75);
+
+    --text: #0f172a;
 }
 
 * {
@@ -15,6 +25,9 @@
 body {
     font-family: "Inter", sans-serif;
     background: var(--background);
+    color: var(--text);
+
+    overflow-x: hidden;
 }
 
 .dashboard {
@@ -176,4 +189,44 @@ body {
     border-radius: 12px;
 
     padding: 12px;
+}
+
+.progress {
+
+    height: 12px;
+
+    border-radius: 999px;
+}
+
+.progress-bar {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #8b5cf6
+        );
+}
+
+.empty-state {
+
+    background: white;
+
+    padding: 50px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.05);
+}
+
+.empty-state i {
+
+    font-size: 4rem;
+
+    color: #94a3b8;
+
+    margin-bottom: 15px;
 }

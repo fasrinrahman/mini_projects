@@ -1,161 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>TaskFlow Dashboard</title>
 
     <!-- Bootstrap 5.3 -->
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome 6 -->
     <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
 
-<body>
-
+  <body>
     <div class="dashboard">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>TaskFlow</span>
+        </div>
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
+        <ul class="nav-links">
+          <li class="active">
+            <i class="fa-solid fa-table-columns"></i>
+            Dashboard
+          </li>
 
-            <div class="logo">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>TaskFlow</span>
-            </div>
+          <li>
+            <i class="fa-solid fa-list-check"></i>
+            Tasks
+          </li>
 
-            <ul class="nav-links">
-                <li class="active">
-                    <i class="fa-solid fa-table-columns"></i>
-                    Dashboard
-                </li>
+          <li>
+            <i class="fa-solid fa-gear"></i>
+            Settings
+          </li>
+        </ul>
+      </aside>
 
-                <li>
-                    <i class="fa-solid fa-list-check"></i>
-                    Tasks
-                </li>
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="topbar">
+          <div>
+            <h2>Task Dashboard</h2>
+            <p>Manage your tasks efficiently</p>
+          </div>
 
-                <li>
-                    <i class="fa-solid fa-gear"></i>
-                    Settings
-                </li>
-            </ul>
+          <button class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>
+            New Task
+          </button>
+        </header>
 
-        </aside>
+        <!-- Statistics -->
+        <section class="stats-grid">
+          <div class="stat-card">
+            <h5>Total Tasks</h5>
+            <h2 id="totalTasks">0</h2>
+          </div>
 
-        <!-- Main Content -->
-        <main class="main-content">
+          <div class="stat-card">
+            <h5>Completed</h5>
+            <h2 id="completedTasks">0</h2>
+          </div>
 
-            <!-- Header -->
-            <header class="topbar">
+          <div class="stat-card">
+            <h5>Pending</h5>
+            <h2 id="pendingTasks">0</h2>
+          </div>
+        </section>
 
-                <div>
-                    <h2>Task Dashboard</h2>
-                    <p>Manage your tasks efficiently</p>
-                </div>
+        <div class="card shadow-sm p-4 mb-4">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5>Task Progress</h5>
 
-                <button class="btn btn-primary">
-                    <i class="fa-solid fa-plus"></i>
-                    New Task
+            <span id="progressText"> 0% </span>
+          </div>
+
+          <div class="progress mt-3">
+            <div
+              id="progressBar"
+              class="progress-bar"
+              role="progressbar"
+              style="width: 0%"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Add Task -->
+        <section class="task-form card shadow-sm">
+          <div class="card-body">
+            <div class="row g-2">
+              <div class="col-md-8">
+                <input
+                  type="text"
+                  id="title"
+                  class="form-control"
+                  placeholder="Enter task title"
+                />
+              </div>
+
+              <div class="col-md-2">
+                <select id="status" class="form-select">
+                  <option>Pending</option>
+                  <option>Completed</option>
+                </select>
+              </div>
+
+              <div class="col-md-2">
+                <button onclick="addTask()" class="btn btn-primary w-100">
+                  <i class="fa-solid fa-plus"></i>
+                  Add
                 </button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            </header>
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search tasks..."
+            />
+          </div>
 
-            <!-- Statistics -->
-            <section class="stats-grid">
+          <div class="col-md-4">
+            <select id="filterStatus" class="form-select">
+              <option value="All">All Tasks</option>
 
-                <div class="stat-card">
-                    <h5>Total Tasks</h5>
-                    <h2 id="totalTasks">0</h2>
-                </div>
+              <option value="Pending">Pending</option>
 
-                <div class="stat-card">
-                    <h5>Completed</h5>
-                    <h2 id="completedTasks">0</h2>
-                </div>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
 
-                <div class="stat-card">
-                    <h5>Pending</h5>
-                    <h2 id="pendingTasks">0</h2>
-                </div>
-
-            </section>
-
-            <!-- Add Task -->
-            <section class="task-form card shadow-sm">
-
-                <div class="card-body">
-
-                    <div class="row g-2">
-
-                        <div class="col-md-8">
-                            <input
-                                type="text"
-                                id="title"
-                                class="form-control"
-                                placeholder="Enter task title">
-                        </div>
-
-                        <div class="col-md-2">
-                            <select
-                                id="status"
-                                class="form-select">
-                                <option>Pending</option>
-                                <option>Completed</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-2">
-                            <button
-                                onclick="addTask()"
-                                class="btn btn-primary w-100">
-
-                                <i class="fa-solid fa-plus"></i>
-                                Add
-
-                            </button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- Tasks -->
-            <section
-                id="task-list"
-                class="task-grid">
-
-            </section>
-
-        </main>
-
+        <!-- Tasks -->
+        <section id="task-list" class="task-grid"></section>
+      </main>
     </div>
 
-    <script
-        src="{{ url_for('static', filename='js/app.js') }}">
-    </script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
-    </script>
-
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

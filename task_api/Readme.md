@@ -2,22 +2,24 @@
 
 A modern task management dashboard built with:
 
-- Python
 - Flask
 - SQLite
 - HTML
 - CSS
 - JavaScript
-- Bootstrap 5
+- Bootstrap
 
 ## Features
 
 - Add Tasks
 - Delete Tasks
-- Task Status
-- Dashboard Statistics
+- Search Tasks
+- Filter Tasks
+- Statistics Dashboard
+- Progress Tracking
 
 ## Run
 
-pip install flask
+pip install -r requirements.txt
+
 python app.py
