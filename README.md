@@ -66,7 +66,7 @@ A terminal-based Todo application built using Python.
 python todo_app.py
 ```
 
-# Mini Project 3 - Student Management System
+# 📂 Mini Project 3 - Student Management System
 
 ## 📌 Description
 
@@ -111,7 +111,7 @@ python student_manager.py
 - Build real-world mini projects
 - Learn backend development concepts
 
-# Mini Project 5 - Inventory Management System
+# 📂 Mini Project 5 - Inventory Management System
 
 ## 📌 Description
 
@@ -138,7 +138,7 @@ A terminal-based inventory management application built using Python.
 python inventory_system.py
 ```
 
-# Mini Project 6 - User Management System
+# 📂 Mini Project 6 - User Management System
 
 ## 📌 Description
 
@@ -166,7 +166,7 @@ A terminal-based authentication and user management system built using Python.
 python user_management.py
 ```
 
-# Mini Project 7 - Weather Dashboard
+# 📂 Mini Project 7 - Weather Dashboard
 
 ## 📌 Description
 
@@ -194,7 +194,7 @@ A terminal-based weather dashboard that retrieves live weather data using an API
 python weather_dashboard.py
 ```
 
-# Mini Project 8 - SQLite Employee Management System
+# 📂 Mini Project 8 - SQLite Employee Management System
 
 ## 📌 Description
 
@@ -221,7 +221,7 @@ A terminal-based employee management application built using Python and SQLite.
 python employee_management.py
 ```
 
-# Mini Project 9 - Flask REST API
+# 📂 Mini Project 9 - Flask REST API
 
 ## 📌 Description
 
@@ -247,7 +247,7 @@ A simple REST API built using Flask.
 python app.py
 ```
 
-# Mini Project 10 - Task Management API
+# 📂 Mini Project 10 - Task Management API
 
 ## 📌 Description
 
