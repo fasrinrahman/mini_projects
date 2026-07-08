@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block title %}
+TaskFlow SaaS
+{% endblock %}
+
+{% block content %}
+
+<!-- <div class="container">
+
+    <div class="hero">
+
+        <h1>
+
+            🚀 TaskFlow SaaS
+
+        </h1>
+
+        <p>
+
+            Building a Professional Task Management System
+
+        </p>
+
+    </div>
+
+</div> -->
+
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2 class="logo">⚡ TaskFlow</h2>
+
+        <nav>
+            <a class="active"><i class="fa fa-chart-line"></i> Dashboard</a>
+            <a><i class="fa fa-list"></i> Tasks</a>
+            <a><i class="fa fa-gear"></i> Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Mini SaaS v1</p>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <div>
+                <h1>Task Dashboard</h1>
+                <p>Manage your workflow smartly</p>
+            </div>
+
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">
+                + New Task
+            </button>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="card stat">
+                <h3 id="total">0</h3>
+                <p>Total Tasks</p>
+            </div>
+
+            <div class="card stat">
+                <h3 id="completed">0</h3>
+                <p>Completed</p>
+            </div>
+
+            <div class="card stat">
+                <h3 id="pending">0</h3>
+                <p>Pending</p>
+            </div>
+        </div>
+
+        <!-- TASK LIST -->
+        <div id="taskList" class="task-grid"></div>
+
+    </main>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="taskModal">
+    <div class="modal-dialog">
+        <div class="modal-content p-3">
+
+            <h4>Create Task</h4>
+
+            <input id="title" class="form-control mt-2" placeholder="Task title">
+            <input id="description" class="form-control mt-2" placeholder="Description">
+
+            <select id="status" class="form-control mt-2">
+                <option>Todo</option>
+                <option>In Progress</option>
+                <option>Done</option>
+            </select>
+
+            <select id="priority" class="form-control mt-2">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+            </select>
+
+            <input id="due" type="date" class="form-control mt-2">
+
+            <button class="btn btn-success mt-3 w-100" onclick="createTask()">
+                Create Task
+            </button>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
